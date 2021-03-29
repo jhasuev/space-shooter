@@ -1,0 +1,99 @@
+{
+	"frames": [
+		{
+			"filename": "enemy1",
+			"frame": {
+				"x": 1,
+				"y": 1,
+				"w": 104,
+				"h": 84
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 104,
+				"h": 84
+			},
+			"sourceSize": {
+				"w": 104,
+				"h": 84
+			}
+		},
+		{
+			"filename": "enemy2",
+			"frame": {
+				"x": 107,
+				"y": 1,
+				"w": 93,
+				"h": 84
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 93,
+				"h": 84
+			},
+			"sourceSize": {
+				"w": 93,
+				"h": 84
+			}
+		},
+		{
+			"filename": "enemy3",
+			"frame": {
+				"x": 202,
+				"y": 1,
+				"w": 103,
+				"h": 84
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 103,
+				"h": 84
+			},
+			"sourceSize": {
+				"w": 103,
+				"h": 84
+			}
+		},
+		{
+			"filename": "player",
+			"frame": {
+				"x": 307,
+				"y": 1,
+				"w": 99,
+				"h": 75
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 99,
+				"h": 75
+			},
+			"sourceSize": {
+				"w": 99,
+				"h": 75
+			}
+		}
+	],
+	"meta": {
+		"app": "http://www.codeandweb.com/texturepacker",
+		"version": "1.0",
+		"image": "npc",
+		"format": "RGBA8888",
+		"size": {
+			"w": 407,
+			"h": 86
+		},
+		"scale": "1"
+	}
+}
