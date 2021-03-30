@@ -18,6 +18,7 @@ export default class GameScene extends Phaser.Scene {
 
   createPlayer() {
     this.player = new Player(this)
+    this.cursors = this.input.keyboard.createCursorKeys()
   }
 
   update() {

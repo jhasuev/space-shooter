@@ -6,6 +6,12 @@ const config = {
   width: 480,
   height: 720,
   type: Phaser.AUTO,
+  physics: {
+    default: "arcade",
+    arcade: {
+      debug: false
+    }
+  }
 }
 
 export default config
