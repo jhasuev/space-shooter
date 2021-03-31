@@ -1,20 +1,19 @@
-import Phaser from "../phaser"
+import Npc from "./Npc"
 import config from "../config"
 
-export default class Player extends Phaser.GameObjects.Sprite {
+export default class Player extends Npc {
   constructor(scene) {
-    super(scene, config.width / 2, config.height / 1.25, "npc", "player")
-    this.init()
-    this.scene = scene
+    super({
+      scene,
+      x: config.width / 2,
+      y: config.height / 1.25,
+      texture: "npc",
+      frame: "player",
+    })
   }
 
   init() {
-    this.scene.add.existing(this)
-    this.scene.physics.add.existing(this)
-    this.body.enable = true
-    this.velocity = 250
-
-    this.scene.events.on("update", this.update, this)
+    super.init()
   }
 
   update() {

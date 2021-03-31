@@ -1,6 +1,7 @@
 import Phaser from "../phaser"
 import config from "../config"
 import Player from "../prefabs/Player"
+import Enemies from "../prefabs/Enemies"
 
 export default class GameScene extends Phaser.Scene {
   constructor() {
@@ -18,6 +19,7 @@ export default class GameScene extends Phaser.Scene {
 
   createPlayer() {
     this.player = new Player(this)
+    this.enemies = new Enemies(this)
     this.cursors = this.input.keyboard.createCursorKeys()
   }
 
