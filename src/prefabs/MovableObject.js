@@ -1,18 +1,17 @@
 import Phaser from "../phaser"
 import config from "../config"
 
-export default class Npc extends Phaser.GameObjects.Sprite {
+export default class MovableObject extends Phaser.GameObjects.Sprite {
   constructor(data) {
     super(data.scene, data.x, data.y, data.texture, data.frame)
-    this.scene = data.scene
-    this.init()
+    this.init(data)
   }
 
-  init() {
+  init(data) {
     this.scene.add.existing(this)
     this.scene.physics.add.existing(this)
     this.body.enable = true
-    this.velocity = 250
+    this.velocity = data.velocity
 
     this.scene.events.on("update", this.update, this)
   }

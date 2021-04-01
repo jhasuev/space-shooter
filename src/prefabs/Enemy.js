@@ -1,13 +1,9 @@
-import Npc from "./Npc"
+import MovableObject from "./MovableObject"
 import config from "../config"
 
-export default class Enemy extends Npc {
-  constructor({ scene, x, y, texture, frame }) {
-    super({ scene, x, y, texture, frame })
-  }
-
-  init() {
-    super.init()
+export default class Enemy extends MovableObject {
+  constructor(data) {
+    super({ ...data })
   }
 
   static generateData() {
@@ -16,12 +12,13 @@ export default class Enemy extends Npc {
       y: -50,
       texture: "npc",
       frame: "enemy" + Phaser.Math.Between(1, 3),
+      velocity: 150,
     }
   }
   
   static generate(scene) {
     return new this({
-      ...this.generateData(scene),
+      ...this.generateData(),
       scene,
     })
   }

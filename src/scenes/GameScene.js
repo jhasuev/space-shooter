@@ -11,6 +11,7 @@ export default class GameScene extends Phaser.Scene {
   create() {
     this.createBackground()
     this.createPlayer()
+    this.addOverlap()
   }
 
   createBackground() {
@@ -18,9 +19,25 @@ export default class GameScene extends Phaser.Scene {
   }
 
   createPlayer() {
-    this.player = new Player(this)
+    this.player = new Player(this).setDepth(10)
     this.enemies = new Enemies(this)
     this.cursors = this.input.keyboard.createCursorKeys()
+    this.spaceKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+  }
+
+  addOverlap() {
+    this.physics.add.overlap(this.player, this.enemies, this.onOverlap, undefined, this)
+    this.physics.add.overlap(this.player.fires, this.enemies, this.onOverlap, undefined, this)
+  }
+
+  onOverlap(source, target) {
+    let enemy = [source, target].find(item => item.texture.key === "npc" && item.frame.name !== "player")
+    if (enemy) {
+      
+    }
+
+    source.setAlive(false)
+    target.setAlive(false)
   }
 
   update() {

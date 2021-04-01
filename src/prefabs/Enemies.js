@@ -32,7 +32,5 @@ export default class Enemies extends Phaser.Physics.Arcade.Group {
     }
 
     enemy.move()
-
-    console.log(this.getLength());
   }
 }
