@@ -25,7 +25,20 @@ export default class Boom extends MovableObject {
     })
 
     this.on("animationcomplete", () => {
-      this.setAlive(false)
+      this.scene.tweens.add({
+        targets: this,
+        duration: 70,
+        
+        alpha: 0,
+        scaleX: 0,
+        scaleY: 0,
+
+        onComplete: () => {
+          this.setAlive(false)
+          this.setAlpha(1)
+          this.setScale(1)
+        },
+      })
     })
   }
 
