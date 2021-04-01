@@ -34,7 +34,10 @@ export default class Player extends MovableObject {
 
   fire() {
     if (Phaser.Input.Keyboard.JustDown(this.scene.spaceKey)) {
-      this.fires.createFire(this)
+      if (this.scene.canFire()) {
+        this.fires.createFire(this)
+        this.scene.events.emit("fire")
+      }
     }
   }
 

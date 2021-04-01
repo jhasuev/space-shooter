@@ -12,7 +12,53 @@ export default class GameScene extends Phaser.Scene {
   create() {
     this.createBackground()
     this.createPlayer()
+    this.createEnemies()
+    this.createBooms()
+    this.createEvents()
     this.addOverlap()
+
+    this.createInfo()
+  }
+
+  createInfo() {
+    this.initInfo()
+
+    this.info = this.add.text(20, 20, this.getCurrentInfo(), {
+      ...config.textStyles,
+      fontSize: "21px",
+    }).setDepth(12)
+  }
+
+  initInfo() {
+    this.score = 0
+    this.bullets = 10
+  }
+
+  updateInfo() {
+    this.info.setText(this.getCurrentInfo())
+  }
+
+  addScore() {
+    this.score += 1
+  }
+
+  addBullet() {
+    this.bullets += 2
+  }
+
+  onFire() {
+    this.bullets -= 1
+  }
+
+  canFire() {
+    return this.bullets > 0
+  }
+
+  getCurrentInfo() {
+    return [
+      `Scores: ${this.score}`,
+      `Bullets: ${this.bullets}`,
+    ].join("\n")
   }
 
   createBackground() {
@@ -21,9 +67,20 @@ export default class GameScene extends Phaser.Scene {
 
   createPlayer() {
     this.player = new Player(this).setDepth(10)
-    this.enemies = new Enemies(this)
-    this.booms = new Booms(this)
 
+    this.events.off("fire", this.onFire, this)
+    this.events.on("fire", this.onFire, this)
+  }
+
+  createEnemies() {
+    this.enemies = new Enemies(this)
+  }
+
+  createBooms() {
+    this.booms = new Booms(this)
+  }
+
+  createEvents() {
     this.cursors = this.input.keyboard.createCursorKeys()
     this.spaceKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
   }
@@ -37,6 +94,8 @@ export default class GameScene extends Phaser.Scene {
     let enemy = [source, target].find(item => item.texture.key === "npc" && item.frame.name !== "player")
     if (enemy) {
       this.booms.createBoom(enemy)
+      this.addScore()
+      this.addBullet()
     }
 
     let player = [source, target].find(item => item.texture.key === "npc" && item.frame.name === "player")
@@ -51,5 +110,6 @@ export default class GameScene extends Phaser.Scene {
 
   update() {
     this.bg.tilePositionY -= .5
+    this.updateInfo()
   }
 }

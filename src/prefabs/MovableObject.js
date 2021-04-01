@@ -35,7 +35,6 @@ export default class MovableObject extends Phaser.GameObjects.Sprite {
   restart(x, y) {
     this.x = x
     this.y = y
-    
     this.setAlive(true)
   }
 

@@ -12,7 +12,7 @@ export default class Enemy extends MovableObject {
       y: -50,
       texture: "npc",
       frame: "enemy" + Phaser.Math.Between(1, 3),
-      velocity: 150,
+      velocity: 70,
     }
   }
   

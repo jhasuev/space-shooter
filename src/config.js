@@ -18,7 +18,8 @@ const config = {
     }
   },
   textStyles: {
-    font: "30px CurseCasual",
+    fontSize: "30px",
+    fontFamily: "CurseCasual",
   },
 }
 
