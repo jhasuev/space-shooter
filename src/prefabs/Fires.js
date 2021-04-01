@@ -13,13 +13,14 @@ export default class Fires extends Phaser.Physics.Arcade.Group {
     if (fire) {
       fire.restart(source)
     } else {
-      fire = Fire.generate(this.scene, source)
+      fire = Fire.generate(this.scene, {
+        ...source,
+        y: source.y - source.height / 2,
+      })
       fire.setOrigin(.5, 1)
       this.add(fire)
     }
 
     fire.move()
-
-    console.log(this.getLength());
   }
 }

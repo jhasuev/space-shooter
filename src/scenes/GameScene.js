@@ -2,6 +2,7 @@ import Phaser from "../phaser"
 import config from "../config"
 import Player from "../prefabs/Player"
 import Enemies from "../prefabs/Enemies"
+import Booms from "../prefabs/Booms"
 
 export default class GameScene extends Phaser.Scene {
   constructor() {
@@ -21,6 +22,8 @@ export default class GameScene extends Phaser.Scene {
   createPlayer() {
     this.player = new Player(this).setDepth(10)
     this.enemies = new Enemies(this)
+    this.booms = new Booms(this)
+
     this.cursors = this.input.keyboard.createCursorKeys()
     this.spaceKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
   }
@@ -33,7 +36,7 @@ export default class GameScene extends Phaser.Scene {
   onOverlap(source, target) {
     let enemy = [source, target].find(item => item.texture.key === "npc" && item.frame.name !== "player")
     if (enemy) {
-      
+      this.booms.createBoom(enemy)
     }
 
     source.setAlive(false)
