@@ -1,10 +1,16 @@
 import MovableObject from "./MovableObject"
-import config from "../config"
 
 export default class Boom extends MovableObject {
   constructor(data) {
     super({ ...data })
 
+    this.setDepth(11)
+    
+    this.initAnims()
+    this.play("boom")
+  }
+
+  initAnims() {
     let frames = this.scene.anims.generateFrameNames("boom", {
       prefix: "boom",
       start: 1,
@@ -18,13 +24,9 @@ export default class Boom extends MovableObject {
       key: "boom",
     })
 
-    this.play("boom")
-
     this.on("animationcomplete", () => {
       this.setAlive(false)
     })
-
-    this.setDepth(11)
   }
 
   static generateData(source) {

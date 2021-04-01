@@ -13,6 +13,6 @@ export default class GameScene extends Phaser.Scene {
   }
 
   create() {
-    this.scene.start("Game")
+    this.scene.start("Start")
   }
 }

@@ -39,6 +39,12 @@ export default class GameScene extends Phaser.Scene {
       this.booms.createBoom(enemy)
     }
 
+    let player = [source, target].find(item => item.texture.key === "npc" && item.frame.name === "player")
+    if (player) {
+      this.booms.createBoom(player)
+      this.scene.start("Start")
+    }
+
     source.setAlive(false)
     target.setAlive(false)
   }

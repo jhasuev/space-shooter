@@ -1,5 +1,4 @@
 import Phaser from "../phaser"
-import config from "../config"
 import Boom from "./Boom"
 
 export default class Booms extends Phaser.Physics.Arcade.Group {
@@ -16,7 +15,5 @@ export default class Booms extends Phaser.Physics.Arcade.Group {
       boom = Boom.generate(this.scene, source)
       this.add(boom)
     }
-    
-    console.log(this.getLength());
   }
 }

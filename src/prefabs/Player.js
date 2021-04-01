@@ -26,8 +26,10 @@ export default class Player extends MovableObject {
   }
 
   update() {
-    this.move()
-    this.fire()
+    if (this.active) {
+      this.move()
+      this.fire()
+    }
   }
 
   fire() {

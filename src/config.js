@@ -1,8 +1,13 @@
 import PreloadScene from "./scenes/PreloadScene"
+import StartScene from "./scenes/StartScene"
 import GameScene from "./scenes/GameScene"
 
 const config = {
-  scene: [PreloadScene, GameScene],
+  scene: [
+    PreloadScene,
+    StartScene,
+    GameScene,
+  ],
   width: 480,
   height: 720,
   type: Phaser.AUTO,
@@ -11,7 +16,10 @@ const config = {
     arcade: {
       debug: false
     }
-  }
+  },
+  textStyles: {
+    font: "30px CurseCasual",
+  },
 }
 
 export default config

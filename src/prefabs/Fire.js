@@ -23,7 +23,7 @@ export default class Fire extends MovableObject {
   }
 
   isDead() {
-    return this.y < 0
+    return this.y - this.height < 0
   }
 
   restart(source) {
