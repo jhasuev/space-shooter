@@ -1,5 +1,3 @@
-import Phaser from "../phaser"
-import config from "../config"
 import Enemy from "./Enemy"
 
 export default class Enemies extends Phaser.Physics.Arcade.Group {

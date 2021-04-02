@@ -1,6 +1,3 @@
-import Phaser from "../phaser"
-import config from "../config"
-
 export default class MovableObject extends Phaser.GameObjects.Sprite {
   constructor(data) {
     super(data.scene, data.x, data.y, data.texture, data.frame)

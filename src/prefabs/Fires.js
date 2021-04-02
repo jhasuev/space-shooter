@@ -1,5 +1,3 @@
-import Phaser from "../phaser"
-import config from "../config"
 import Fire from "./Fire"
 
 export default class Fires extends Phaser.Physics.Arcade.Group {
