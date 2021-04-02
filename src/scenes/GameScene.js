@@ -79,9 +79,13 @@ export default class GameScene extends Phaser.Scene {
 
   createPlayer() {
     this.player = new Player(this).setDepth(10)
+  }
 
-    this.events.off("fire", this.onFire, this)
-    this.events.on("fire", this.onFire, this)
+  onTapDown() {
+    if (this.canFire()) {
+      this.player.fire()
+      this.onFire()
+    }
   }
 
   createEnemies() {
@@ -93,8 +97,7 @@ export default class GameScene extends Phaser.Scene {
   }
 
   createEvents() {
-    this.cursors = this.input.keyboard.createCursorKeys()
-    this.spaceKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+    this.input.on("pointerdown", this.onTapDown, this)
   }
 
   addOverlap() {
