@@ -12,7 +12,7 @@ const config = {
   ],
   width: 480,
   height: 720,
-  type: Phaser.AUTO,
+  type: Phaser.CANVAS,
   physics: {
     default: "arcade",
     arcade: {
