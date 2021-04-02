@@ -18,6 +18,18 @@ export default class GameScene extends Phaser.Scene {
     this.addOverlap()
 
     this.createInfo()
+    this.createSounds()
+  }
+
+  createSounds() {
+    if (this.sounds) return;
+
+    this.sounds = {
+      theme: this.sound.add("theme"),
+      boom: this.sound.add("boom", { volume: .2 }),
+    }
+
+    this.sounds.theme.play({ volume: .5, loop: true })
   }
 
   createInfo() {
@@ -96,6 +108,7 @@ export default class GameScene extends Phaser.Scene {
       this.booms.createBoom(enemy)
       this.addScore()
       this.addBullet()
+      this.sounds.boom.play()
     }
 
     let player = [source, target].find(item => item.texture.key === "npc" && item.frame.name === "player")

@@ -1,9 +1,11 @@
+import BootScene from "./scenes/BootScene"
 import PreloadScene from "./scenes/PreloadScene"
 import StartScene from "./scenes/StartScene"
 import GameScene from "./scenes/GameScene"
 
 const config = {
   scene: [
+    BootScene,
     PreloadScene,
     StartScene,
     GameScene,
