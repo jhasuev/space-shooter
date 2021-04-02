@@ -104,18 +104,19 @@ export default class GameScene extends Phaser.Scene {
 
   onOverlap(source, target) {
     let enemy = [source, target].find(item => item.texture.key === "npc" && item.frame.name !== "player")
-    if (enemy) {
-      this.booms.createBoom(enemy)
+    let player = [source, target].find(item => item.texture.key === "npc" && item.frame.name === "player")
+
+    if (player) {
+      this.scene.start("Start", {
+        score: this.score
+      })
+    } else if (enemy) {
       this.addScore()
       this.addBullet()
-      this.sounds.boom.play()
     }
 
-    let player = [source, target].find(item => item.texture.key === "npc" && item.frame.name === "player")
-    if (player) {
-      this.booms.createBoom(player)
-      this.scene.start("Start")
-    }
+    this.booms.createBoom(enemy || player)
+    this.sounds.boom.play()
 
     source.setAlive(false)
     target.setAlive(false)
