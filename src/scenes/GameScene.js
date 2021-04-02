@@ -1,4 +1,3 @@
-import Phaser from "../phaser"
 import config from "../config"
 import Player from "../prefabs/Player"
 import Enemies from "../prefabs/Enemies"

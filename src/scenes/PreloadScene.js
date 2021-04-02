@@ -1,7 +1,6 @@
-import Phaser from "../phaser"
 import config from "../config"
 
-export default class GameScene extends Phaser.Scene {
+export default class PreloadScene extends Phaser.Scene {
   constructor() {
     super("Preload")
     this.style = {

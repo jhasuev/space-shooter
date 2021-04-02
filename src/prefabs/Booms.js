@@ -1,4 +1,3 @@
-import Phaser from "../phaser"
 import Boom from "./Boom"
 
 export default class Booms extends Phaser.Physics.Arcade.Group {
